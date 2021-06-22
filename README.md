@@ -2,6 +2,7 @@
 a twitch extension to control your pi from a twitchbot
 
 ## Source code to send the camera module stream to twitch ##
+`
 #!/bin/bash
 
 # =================================================================
@@ -79,7 +80,7 @@ raspivid -n -t 0 -w $WIDTH -h $HEIGHT -fps $FRAMERATE -b $BITRATE -g $KEYFRAME -
 # a blank audio channel is included. It was not required for Twitch
 # in my testing. 
 # =================================================================
-
+`
 
 
 ## Type this in the browser ##
