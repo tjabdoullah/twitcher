@@ -1,0 +1,11 @@
+python3 twitcher.py
+python3 twitcher.py
+python3 twitcher.py
+python3 twitcher.py
+python3 twitcher.py
+python3 twitcher.py
+python3 twitcher.py
+python3 twitcher.py
+python3 twitcher.py
+python3 twitcher.py
+python3 twitcher.py
