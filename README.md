@@ -1,5 +1,5 @@
 # twitcher
-a twitch extension to control your pi from a twitchbot
+a twitch extension to control your pi from a twitchbot while streaming
 
 ## Source code to send the camera module stream to twitch ##
 
