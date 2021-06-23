@@ -39,3 +39,4 @@ express_app/.DS_Store
 
 #Excluding build directory
 express_app/public/
+
