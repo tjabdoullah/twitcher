@@ -11,7 +11,7 @@ for pin in control_pins:
   GPIO.output(pin, 0)
 
 # Getting the right signals to turn the stepper motor
-halfstep_seq = [
+halfstep_seq_right = [
   [1,0,0,0],
   [1,1,0,0],
   [0,1,0,0],
@@ -22,6 +22,17 @@ halfstep_seq = [
   [1,0,0,1]
 ]
 
+halfstep_seq_left = [
+  [1,0,0,1],
+  [0,0,0,1],
+  [0,0,1,1],
+  [0,0,1,0],
+  [0,1,1,0],
+  [0,1,0,0],
+  [1,1,0,0],
+  [1,0,0,0]
+]
+
 # Moving the stepper motor by 32th of a full circle
 for i in range(16):
  for halfstep in range(8):
@@ -29,7 +40,4 @@ for i in range(16):
      GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])
    time.sleep(0.001)
 
-# GPIO.output(7, 1)
-# time.sleep(0.001)
-    
 GPIO.cleanup()

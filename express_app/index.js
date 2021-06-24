@@ -18,5 +18,5 @@ client.connect();
 client.on('message', (channel, tags, message, self) => {
   const txt = `${tags['display-name']}: ${message}`
   console.log(`${tags['display-name']}: ${message}`);
-  const python = spawn('python3', ['move_left.py', txt]);
+  const python = spawn('python3', ['../python_scripts/move.py', txt]);
 });
