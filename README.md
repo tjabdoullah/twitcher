@@ -3,6 +3,11 @@
 a twitch extension to control your pi from a twitchbot while streaming
 
 
+## 0/ Project Structure
+The codebase is currently half python half nodejs. The node js part connects to a twitch bot to be able to receive messages from the chat. Once a message is recieved, based on if it's left or right, a python script recieves the direction for the stepper motor to rurn either right or left.
+
+    node express_app/index.js
+
 ## 1/ To stream you need a client ID & a Key that you need to get from
 https://id.twitch.tv/oauth2/authorize?client_id=[your client ID]&redirect_uri=http://localhost&response_type=token &scope=channel:moderate+chat:edit+chat:read
 

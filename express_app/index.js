@@ -16,7 +16,8 @@ const client = new tmi.Client({
 client.connect();
 
 client.on('message', (channel, tags, message, self) => {
-  const txt = `${tags['display-name']}: ${message}`
+  const txt = `${message}`
   console.log(`${tags['display-name']}: ${message}`);
+  console.log(`${message}`);
   const python = spawn('python3', ['../python_scripts/move.py', txt]);
 });
