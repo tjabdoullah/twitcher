@@ -17,7 +17,7 @@
 
 
 # Set width and height of output video
-WIDTH=1920
+WIDTH=1080
 HEIGHT=1080
 
 # Set output framerate
@@ -36,8 +36,15 @@ URL=rtmp://maa01.contribute.live-video.net/app
 # Set stream key
 KEY=live_101362215_q17lXWrNVX8nB8E8OmCiFw05XedLdG
 
+# To make sure we are connected to internet
+sleep 30
+
 # Command
-raspivid -n -t 0 -w $WIDTH -h $HEIGHT -fps $FRAMERATE -b $BITRATE -g $KEYFRAME -o - | ffmpeg -f lavfi -i anullsrc -c:a aac -r $FRAMERATE -i - -g $KEYFRAME -strict experimental -threads 4 -vcodec copy -map 0:a -map 1:v -b:v $BITRATE -preset ultrafast -f flv "${URL}/${KEY}"
+now=$(date +"%d/%m/%y %T")
+echo "Live Started at: $now"  >> /home/pi/Desktop/twitcher_log.txt
+
+# Start shooting to twitch
+#raspivid -n -t 0 -w $WIDTH -h $HEIGHT -fps $FRAMERATE -b $BITRATE -g $KEYFRAME -o - | ffmpeg -f lavfi -i anullsrc -c:a aac -r $FRAMERATE -i - -g $KEYFRAME -strict experimental -threads 4 -vcodec copy -map 0:a -map 1:v -b:v $BITRATE -preset ultrafast -f flv "${URL}/${KEY}" >> /home/pi/Desktop/twitch-stream.txt
 
 # =================================================================
 # Full Documentation of Command Options

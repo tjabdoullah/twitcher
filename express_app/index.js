@@ -8,7 +8,7 @@ const client = new tmi.Client({
   },
   identity: {
     username: 'abdoullahtj',
-    password: 'll2qg4231qavcerqjqtacq0nq6d2qa'
+    password: '9sf47q6po1qbx8p8smc71hy8yg93m6'
   },
   channels: [ 'AbdoullahTJ' ]
 });

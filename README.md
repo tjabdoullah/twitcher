@@ -73,3 +73,33 @@ It's better to download them with the AWS CLI [On mac there is a install file fo
 
     ffmpeg -framerate 1 -pattern_type glob -i '*.jpg' video.mp4
 
+## 8/ Run the stream on startup
+
+Go to /etc/systemd/system/ and create a new file: twitcher.service
+Put this content inside:
+
+    [Unit]
+    Description=raspivid
+    Wants=network-online.target
+    After=network.target
+    
+    [Service]
+    ExecStart=[Link to your script that runs the twitch stream]
+    
+    [Install]
+    WantedBy=multi-user.target
+
+Save the file:
+
+    systemctl enable twitcher
+    systemctl daemon-reload
+    systemctl start twitcher
+    systemctl status twitcher
+
+
+
+
+
+
+
+
