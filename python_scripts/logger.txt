@@ -1,2 +1,26 @@
 direction has been added
 direction is: left
+direction has been added
+direction is: left
+direction has been added
+direction is: right
+direction has been added
+direction is: left
+direction has been added
+direction is: left
+direction has been added
+direction is: right
+direction has been added
+direction is: left
+direction has been added
+direction is: left
+direction has been added
+direction is: right
+direction has been added
+direction is: right
+direction has been added
+direction is: right
+direction has been added
+direction is: left
+direction has been added
+direction is: right

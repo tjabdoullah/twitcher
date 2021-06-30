@@ -17,7 +17,7 @@ for pin in control_pins:
   GPIO.output(pin, 0)
 
 # Getting the right signals to turn the stepper motor
-halfstep_seq_right = [
+halfstep_seq_left = [
   [1,0,0,0],
   [1,1,0,0],
   [0,1,0,0],
@@ -28,7 +28,7 @@ halfstep_seq_right = [
   [1,0,0,1]
 ]
 
-halfstep_seq_left = [
+halfstep_seq_right = [
   [1,0,0,1],
   [0,0,0,1],
   [0,0,1,1],
@@ -40,7 +40,7 @@ halfstep_seq_left = [
 ]
 
 # Keeping this as a defaultdirection
-halfstep_direction = halfstep_seq_right
+halfstep_direction = 0
 
 if len(sys.argv) == 2:
   print("direction has been added")
@@ -49,16 +49,17 @@ if len(sys.argv) == 2:
   f.write("direction is: " + sys.argv[1] + "\n")
   f.close()
 
-  if sys.argv[1] == "right":
+  if sys.argv[1].lower() in ["right", "droite", "يمين"]:
     halfstep_direction = halfstep_seq_right
-  elif sys.argv[1] == "left":
+  elif sys.argv[1].lower() in ["left", "gauche", "يسار"]:
     halfstep_direction = halfstep_seq_left
 
 # Moving the stepper motor by 32th of a full circle
-for i in range(16):
- for halfstep in range(8):
-   for pin in range(4):
-     GPIO.output(control_pins[pin], halfstep_direction[halfstep][pin])
-   time.sleep(0.001)
+if halfstep_direction != 0:
+ for i in range(16):
+  for halfstep in range(8):
+    for pin in range(4):
+      GPIO.output(control_pins[pin], halfstep_direction[halfstep][pin])
+    time.sleep(0.001)
 
 GPIO.cleanup()

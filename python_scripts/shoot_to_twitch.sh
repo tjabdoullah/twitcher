@@ -17,7 +17,7 @@
 
 
 # Set width and height of output video
-WIDTH=1080
+WIDTH=1920
 HEIGHT=1080
 
 # Set output framerate
@@ -44,7 +44,7 @@ now=$(date +"%d/%m/%y %T")
 echo "Live Started at: $now"  >> /home/pi/Desktop/twitcher_log.txt
 
 # Start shooting to twitch
-#raspivid -n -t 0 -w $WIDTH -h $HEIGHT -fps $FRAMERATE -b $BITRATE -g $KEYFRAME -o - | ffmpeg -f lavfi -i anullsrc -c:a aac -r $FRAMERATE -i - -g $KEYFRAME -strict experimental -threads 4 -vcodec copy -map 0:a -map 1:v -b:v $BITRATE -preset ultrafast -f flv "${URL}/${KEY}" >> /home/pi/Desktop/twitch-stream.txt
+raspivid -n -t 0 -w $WIDTH -h $HEIGHT -fps $FRAMERATE -b $BITRATE -g $KEYFRAME -o - | ffmpeg -f lavfi -i anullsrc -c:a aac -r $FRAMERATE -i - -g $KEYFRAME -strict experimental -threads 4 -vcodec copy -map 0:a -map 1:v -b:v $BITRATE -preset ultrafast -f flv "${URL}/${KEY}" >> /home/pi/Desktop/twitch-stream.txt & node /home/pi/Desktop/twitcher/express_app/index.js >> /home/pi/Desktop/twitch-bot.txt
 
 # =================================================================
 # Full Documentation of Command Options
